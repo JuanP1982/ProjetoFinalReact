@@ -1,12 +1,10 @@
 import { CardBox } from "./style"
 
 export function Card(){
-    return(
-        <>
+    return(        
+       
         <CardBox >
-        </CardBox>
-        
-        </>
+        </CardBox> 
     )
         
     
