@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { postCliente } from "../../service/clientes"
-import { InputModificado, InputModificado2 } from "../../components/input/Input"
+import styles from './cadastro.module.css'
+import { InputModificado1, InputModificado2,InputModificado3,InputModificado4,InputModificado5,InputModificado6} from "../../components/input/Input"
 import { ListarClientes } from "../Perfil/Perfil"
 import { obterToken } from "../../uteis/localStorage/localStorage"
 
@@ -34,28 +35,23 @@ export function Teste(){
     
     return(
         <main>
-        <div>
+        <div className={styles.formCardDiv}>
             <h1>Criar Conta</h1>
-        <form>
-        <label >Nome do cliente:</label>
-        <InputModificado2 name="nome" value={formInfo.nome} onChange={adicionar}></InputModificado2>
+            <h4>Já tem uma conta? <a href="#">Faça login.</a></h4>
+            <form>
+        <InputModificado1 name="nome" value={formInfo.nome} onChange={adicionar}></InputModificado1>
         <br/>
-        <label >Telefone do cliente:</label>
-        <InputModificado2  name="telefone" value={formInfo.telefone} onChange={adicionar}></InputModificado2>
+        <InputModificado2 name="telefone" value={formInfo.telefone} onChange={adicionar}></InputModificado2>
         <br/>
-        <label >email do cliente:</label>
-        <InputModificado2 name="email" value={formInfo.email} onChange={adicionar}></InputModificado2>
+        <InputModificado3 name="email" value={formInfo.email} onChange={adicionar}></InputModificado3>
         <br/>
-        <label >cpf do cliente:</label>
-        <InputModificado2 name="cpf" value={formInfo.cpf} onChange={adicionar}></InputModificado2>
+        <InputModificado4 name="cpf" value={formInfo.cpf} onChange={adicionar}></InputModificado4>
         <br/>
-        <label >senha do cliente:</label>
-        <InputModificado2 name="senha" value={formInfo.senha} onChange={adicionar}></InputModificado2>
+        <InputModificado5 name="senha" value={formInfo.senha} onChange={adicionar}></InputModificado5>
         <br/>
-        <label >cep do cliente:</label>
-        <InputModificado2 name="cep" value={formInfo.cep} onChange={adicionar}></InputModificado2>
+        <InputModificado6 name="cep" value={formInfo.cep} onChange={adicionar}></InputModificado6>
         <br/>
-        <button  type="button" onClick={() => criarCliente(formInfo)}>teste</button>
+        <button  type="button" onClick={() => criarCliente(formInfo)}>Cadastrar</button>
         </form>
         </div>
         </main>
