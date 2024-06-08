@@ -49,7 +49,7 @@ button {
   font-size: 1em;
   font-weight: 550;
   font-family: inherit;
-  background-color: #b2e75b;
+  background-color: #55bfd4;
   cursor: pointer;
   transition: border-color 0.25s;
   margin-top: 7px;
@@ -57,12 +57,12 @@ button {
   color: #000000;
 }
 button:hover {
-  background-color: #b9dd7e;
+  background-color: #5bd3eb;
   transition: 0.5s;
   color: rgb(32, 32, 32);
-  box-shadow: 0 0 5px #8ab643,
-  0 0 40px #b2e75b, 0 0 10px #b2e75b,
-  0 0 10px #b2e75b, 0 0 30px #b2e75b;
+  box-shadow: 0 0 5px #5bd3eb,
+  0 0 40px #5bd3eb, 0 0 10px #5bd3eb,
+  0 0 10px #5bd3eb, 0 0 30px #5bd3eb;
   color: white;
   transition: 0.3s ease;
 }
