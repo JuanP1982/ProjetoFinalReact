@@ -45,6 +45,14 @@ const CartProvider = (props) => {
     salvarProdutosCarrinho(novosItens);
   }
 
+  function calcularTotal() {
+    let total = 0;
+    cartItens.forEach((item) => {
+      total += item.preco * item.quantidade;
+    });
+    setValorTotal(total);
+  }
+
   function limparCarrinho() {
     setCartItens([]);
     
@@ -60,6 +68,8 @@ const CartProvider = (props) => {
           adicionarItens,
           removerItens,
           limparCarrinho,
+          calcularTotal,
+          valorTotal
         }}
       >
         {props.children}

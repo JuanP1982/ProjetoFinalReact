@@ -1,70 +1,77 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #0b0a0f9a;
-    display: flex;
-    flex-direction: row;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0b0a0f9a;
+  display: flex;
+  flex-direction: column; 
+}
+
 header {
-    background-color:#0b0a0f;
-    color: #55bfd4;
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    height: 60px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
+  background-color: #0b0a0f;
+  color: #55bfd4;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  left: 0; 
+  right: 0; 
+  top: 0;
+  z-index: 1000;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
 
-  }
-  
-  nav ul li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
- 
-  }
-  
-  nav ul li a {
-    display: inline;
-    margin: 0 10px;
-    color: #55bfd4;
-  }
-  
-  input[type="text"] {
-    padding: 0.5rem;
+nav ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  display: inline;
+  margin: 0 10px;
+  color: #55bfd4;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
   max-width: 450px;
   width: 50%;
   box-sizing: border-box;
   border: none;
   margin-right: 10px;
   border-radius: 2%;
-  
-  }
-  button[type="button"]{
-    background-color: #55bfd4; 
-    color: #020202;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 40px;
-    margin-top: -5px;
+}
 
-  }
-  button[type="button"]:hover {
-    background-color: #55bfd4;
-  }
-  
+button[type="button"] {
+  background-color: #55bfd4; 
+  color: #020202;
+  border: none;
+  padding: 0.5rem 4rem;
+  cursor: pointer;
+  border-radius: 5px;
+ margin-left: 10px;
+  margin-top: 0;
+  margin-right: 20px;
+}
+
+button[type="button"]:hover {
+  background-color: #47abbe;
+  color: rgb(255, 255, 255);
+}
+a:hover {
+  color: #47abbe;
+}
+a{
+  text-decoration: none;
+}

@@ -17,6 +17,8 @@ const ClienteProvider = (props) => {
 
     useEffect(()=>(obterClientes()),[])
 
+    
+
     return(
         <ClienteContext.Provider value={clientes}>
         {props.children}
