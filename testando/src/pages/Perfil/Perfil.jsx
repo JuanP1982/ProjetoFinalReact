@@ -4,6 +4,7 @@ import { Card } from "../../components/Card/Card"
 import { CardBox } from "../../components/Card/style"
 import { ClienteContext } from "../../context/clienteContext"
 import { limparLocalStorage, obterPefilUsuario, obterToken } from "../../uteis/localStorage/localStorage"
+import Cabecalho from "../../components/paginaInicio/cabecalho"
 
 
 export function ListarClientes(){
@@ -36,6 +37,7 @@ export function ListarClientes(){
     
     return(
         <div>
+            <Cabecalho/>
            <CardBox key={cliente.id}>
             <p >ID: {cliente.id}</p>
            <p >Nome: {cliente.nome}</p>
@@ -46,6 +48,7 @@ export function ListarClientes(){
                 <div key={index}>
                 <p>{pedido.totalCarrinho}</p>
                 <p>{pedido.status}</p>
+                <img src={pedido.url} alt="" />
                 </div>
             ))}
             </CardBox>
