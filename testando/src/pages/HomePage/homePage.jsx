@@ -39,11 +39,13 @@ export function Home(){
                 <p id="descrição">Descrição: {produto.categoria.descricao}</p>
                 <button type="button" onClick={() => adicionarCarrinho(produto)}>Adicionar ao carrinho</button>
                 </CardBox>
-                
+               
 
             ))}
-            </div>     
+            </div> 
+            
       </main>
+      <Rodape /> 
             
         </div>
     );

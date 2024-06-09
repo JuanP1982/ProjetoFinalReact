@@ -4,8 +4,9 @@ import { Teste } from "../pages/Cadastro/Cadastro"
 import { ClienteContext, ClienteProvider } from "../context/clienteContext";
 import { Home } from "../pages/HomePage/homePage";
 
+
 import { CartProvider } from "../context/carrinhoContext";
-import CarrinhoPage from "../pages/Carrinho/carrinho";
+import CarrinhoPage from "../pages/Carrinho/Carrinho";
 
 export function  Rotas(){
 
