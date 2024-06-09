@@ -18,7 +18,12 @@ export function Home(){
         }, [listaProdutos])
      
         const adicionarCarrinho = (produto) => {
+            if (localStorage.getItem("token") === null) {
+                alert("Faça login para adicionar itens ao carrinho!")
+                setInterval(()=>{window.location.href="/cadastro"},1000)
+            }else{
             adicionarItens(produto);
+        }
           };
         
     return(
@@ -30,13 +35,12 @@ export function Home(){
                 <CardBox key={produto.id}>
                 <p id="nome">Produto: {produto.nome}</p>
                 <img id="foto" height="150px"  src={produto.url}></img>
-                <p id="quantidade">Quantidade: {produto.quantidade}</p>
                 <p id="preco">Preço: {produto.preco}</p>
                 <p id="descrição">Descrição: {produto.categoria.descricao}</p>
                 <button type="button" onClick={() => adicionarCarrinho(produto)}>Adicionar ao carrinho</button>
                 </CardBox>
                 
-                
+
             ))}
             </div>     
       </main>

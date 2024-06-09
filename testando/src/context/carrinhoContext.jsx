@@ -34,7 +34,12 @@ const CartProvider = (props) => {
   }
 
   function removerItens(id) {
-    const novosItens = cartItens.filter(item => item.id !== id);
+    const novosItens = cartItens.map(item => {
+      if (item.id === id) {
+        return { ...item, quantidade: item.quantidade - 1 };
+      }
+      return item;
+    }).filter(item => item.quantidade > 0);
   
     setCartItens(novosItens);
     salvarProdutosCarrinho(novosItens);
