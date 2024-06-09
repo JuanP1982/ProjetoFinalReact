@@ -7,7 +7,8 @@ import Cabecalho from "../../components/paginaInicio/cabecalho";
 const CarrinhoPage = () => {
   const [cliente, setCliente] = useState(undefined)
   const [itens, setItens] = useState([])
- const {removerItens, cartItens } = useContext(cartContext)
+  let total;
+ const {removerItens, cartItens, calcularTotal, valorTotal } = useContext(cartContext)
 
  useEffect(()=>{
   if (localStorage.getItem("token") === null) {
@@ -30,11 +31,14 @@ const CarrinhoPage = () => {
       
       const ItensCart = obterProdutosCarrinho()
       setItens(ItensCart)
-    
-    }, [])
 
-    useEffect(() => {
-      setItens(cartItens);
+      calcularTotal()
+      
+      }, [])
+      
+      useEffect(() => {
+        setItens(cartItens);
+        calcularTotal()
     }, [cartItens]);
     
 
@@ -58,7 +62,7 @@ const CarrinhoPage = () => {
           </li>
         ))}
       </ul>
-     
+     <p>Total do carrinho: {valorTotal}</p>
          </div>
   );
 };
