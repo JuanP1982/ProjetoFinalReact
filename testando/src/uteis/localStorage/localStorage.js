@@ -1,6 +1,7 @@
 //chave e valor
 //chave: string; valor: variável que vai ser settada ou resgatada
 
+import { useState } from "react";
 import { json } from "react-router-dom";
 
 export const salvarToken = (token) =>{
@@ -26,3 +27,16 @@ export const obterPefilUsuario = () =>{
 export const limparLocalStorage = () =>{
     localStorage.clear();
 };
+
+export const salvarProdutosCarrinho = (Produtos)=>{
+    localStorage.setItem('Produtos', JSON.stringify(Produtos));
+   };
+
+   export const obterProdutosCarrinho = () =>{
+    const ProdutosCarrinho = localStorage.getItem("Produtos");
+    return  ProdutosCarrinho ? JSON.parse(ProdutosCarrinho) : [];
+    
+};
+
+
+

@@ -1,47 +1,66 @@
-import { useContext, useState, useEffect } from "react"
-import { limparLocalStorage, obterPefilUsuario, obterToken } from "../../uteis/localStorage/localStorage"
+import React, { useEffect,useContext, useState } from "react";
+import { cartContext } from "../../context/carrinhoContext";
 import { getClienteId, getClientes } from "../../service/clientes"
-import { cartContext } from "../../context/carrinhoContext"
+import { limparLocalStorage, obterPefilUsuario, obterProdutosCarrinho, obterToken } from "../../uteis/localStorage/localStorage"
+import Cabecalho from "../../components/paginaInicio/cabecalho";
 
-export function Carrinho(){
-    const carrinho = useContext(cartContext)
-    const [cliente, setCliente] = useState(undefined)
-    const [cartItens, setCartItens] = useState([])
+const CarrinhoPage = () => {
+  const [cliente, setCliente] = useState(undefined)
+  const [itens, setItens] = useState([])
+ const {removerItens, cartItens } = useContext(cartContext)
+
+ useEffect(()=>{
+  if (localStorage.getItem("token") === null) {
+      document.body.style.display = "hidden"
+      alert("Faça login para continuar!")
+      setInterval(()=>{window.location.href="/cadastro"},1000)
+  }
+
+  const clienteCarregar = obterPefilUsuario()
+  setCliente(clienteCarregar)
+  
+  const clienteAtualizar = async () =>{
+      const clienteAtualizado = await getClienteId()
+      setCliente(clienteAtualizado)
+  }
+
+  if (clienteCarregar) {
+      clienteAtualizar()
+      }
+      
+      const ItensCart = obterProdutosCarrinho()
+      setItens(ItensCart)
     
-
-    useEffect(()=>{
-        if (localStorage.getItem("token") === null) {
-            document.body.style.display = "hidden"
-            alert("Faça login para continuar!")
-            setInterval(()=>{window.location.href="/cadastro"},1000)
-        }
-
-        const clienteCarregar = obterPefilUsuario()
-        setCliente(clienteCarregar)
-        
-        const clienteAtualizar = async () =>{
-            const clienteAtualizado = await getClienteId()
-            setCliente(clienteAtualizado)
-        }
-
-        if (clienteCarregar) {
-            clienteAtualizar()
-        }
-
-        
-
     }, [])
 
-    useEffect(()=>{
-        setCartItens(carrinho)
-        }, [carrinho])
-
-        console.log(carrinho)
+    useEffect(() => {
+      setItens(cartItens);
+    }, [cartItens]);
     
-    return(
 
-        <div>
+    if (cliente === undefined) {
+      return <div>...Carregando...</div>
+      }
 
-        </div>
-    )
-}
+
+    console.log(itens);
+  return (
+    <div>
+      <Cabecalho/>
+            <h1>Carrinho de Compras {cliente.nome}</h1>
+      <ul>
+        {itens.map((item) => (
+          <li key={item.id}>
+            <p>Produto: {item.nome}</p>
+            <p>Quantidade: {item.quantidade}</p>
+            <p>Preço: {item.preco}</p>
+            <button onClick={() => removerItens(item.id)}>Remover</button>
+          </li>
+        ))}
+      </ul>
+     
+         </div>
+  );
+};
+
+export default CarrinhoPage;

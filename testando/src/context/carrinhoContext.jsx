@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { obterProdutosCarrinho } from "../uteis/localStorage/localStorage";
+import { salvarProdutosCarrinho } from "../uteis/localStorage/localStorage";
 
 const cartContext = createContext();
 
@@ -6,30 +8,44 @@ const CartProvider = (props) => {
   const [cartItens, setCartItens] = useState([]);
   const [valorTotal, setValorTotal] = useState(0);
 
-  function adicionarItens(produto) {
-    setCartItens([...cartItens, produto]);
+  useEffect(() => {
+    const itensSalvos = obterProdutosCarrinho();
+    setCartItens(itensSalvos);
+  }, []);
+
+  function adicionarItens(novoProduto) {
+    const produtoExistente = cartItens.find(produto => produto.id === novoProduto.id);
+  
+   var novosItens;
+    
+    if (produtoExistente) {
+      novosItens = cartItens.map(item => {
+        if (item.id === novoProduto.id) {
+          return { ...item, quantidade: item.quantidade + 1 };
+        }
+        return item;
+      });
+    } else {
+      novosItens = [...cartItens, { ...novoProduto, quantidade: 1 }];
+    }
+  
+    setCartItens(novosItens);
+    salvarProdutosCarrinho(novosItens);
   }
 
   function removerItens(id) {
-    for (let i = 0; i < cartItens.length; i++) {
-      if (cartItens[i].id === id) {
-        cartItens.splice(i, 1);
-      }
-    }
-    setCartItens([...cartItens]);
+    const novosItens = cartItens.filter(item => item.id !== id);
+  
+    setCartItens(novosItens);
+    salvarProdutosCarrinho(novosItens);
   }
 
   function limparCarrinho() {
     setCartItens([]);
+    
   }
 
-  function calcularTotal() {
-    let total = 0;
-    valor.forEach((item) => {
-      total += item.quantidade * item.valorUnitario;
-    });
-    setValorTotal(total);
-  }
+  
 
   return (
     <>
@@ -39,7 +55,6 @@ const CartProvider = (props) => {
           adicionarItens,
           removerItens,
           limparCarrinho,
-          calcularTotal,
         }}
       >
         {props.children}

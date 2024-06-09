@@ -8,19 +8,18 @@ import Rodape from "../../components/paginaInicio/rodape";
 
 
 export function Home(){
-    const { adicionarItens } = useContext(cartContext);
-    const carrinho = useContext(cartContext)
     const listaProdutos = useContext(ProdutoContext);
     const [produtos, setProdutos] = useState([])
     const[busca,setBusca]= useState("");
-
+    const { adicionarItens } = useContext(cartContext);
+    
     useEffect(()=>{
         setProdutos(listaProdutos)
         }, [listaProdutos])
      
-        const adicionarCarrinho= (produto)=>{
-            adicionarItens(produto)
-        }
+        const adicionarCarrinho = (produto) => {
+            adicionarItens(produto);
+          };
         
     return(
         <div style = {{display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center", padding: "0 200px"}}>
@@ -34,8 +33,7 @@ export function Home(){
                 <p id="quantidade">Quantidade: {produto.quantidade}</p>
                 <p id="preco">Preço: {produto.preco}</p>
                 <p id="descrição">Descrição: {produto.categoria.descricao}</p>
-                {console.log(produto)}
-                <button type="button" onClick={()=>{adicionarCarrinho(produto)}}></button>
+                <button type="button" onClick={() => adicionarCarrinho(produto)}>Adicionar ao carrinho</button>
                 </CardBox>
                 
                 
