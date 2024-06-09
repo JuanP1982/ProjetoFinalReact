@@ -1,0 +1,27 @@
+button[type="buttonn"] {
+    color: #000000; 
+    background-color: #55bfd4; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-size: 10px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    
+}
+
+button[type="buttonn"]:hover {
+    background-color: #469ba3; 
+    transform: scale(1.05); 
+}
+
+button[type="buttonn"]:active {
+    background-color: #387d86; 
+    transform: scale(1); 
+}
+
+button[type="buttonn"]:focus {
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(85, 191, 212, 0.5); 
+}

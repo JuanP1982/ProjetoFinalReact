@@ -55,7 +55,7 @@ input[type="text"] {
 
 button[type="button"] {
   background-color: #55bfd4; 
-  color: #020202;
+  color: rgba(0, 0, 0, 0.904);
   border: none;
   padding: 0.5rem 4rem;
   cursor: pointer;
@@ -74,4 +74,7 @@ a:hover {
 }
 a{
   text-decoration: none;
+}
+.adicionarCarrinho{
+  background-color: #f5fbfc; 
 }
