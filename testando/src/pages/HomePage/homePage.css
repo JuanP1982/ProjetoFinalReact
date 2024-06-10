@@ -35,7 +35,7 @@ button[type="buttonn"]:focus {
 }
 
 .home-main {
-    max-width: 800px;
+    max-width: 1200px;
     width: 100%;
     padding: 0 20px;
 }
@@ -49,6 +49,7 @@ button[type="buttonn"]:focus {
     padding: 0 20px;
     margin-left: -10px;
 }
+
 
 @media (max-width: 768px) {
     .home-container {
