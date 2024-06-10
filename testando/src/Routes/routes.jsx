@@ -3,7 +3,7 @@ import { ListarClientes } from "../pages/Perfil/Perfil"
 import { Teste } from "../pages/Cadastro/Cadastro"
 import { ClienteContext, ClienteProvider } from "../context/clienteContext";
 import { Home } from "../pages/HomePage/homePage";
-
+import { Login } from '../pages/Login/login';
 
 import { CartProvider } from "../context/carrinhoContext";
 import CarrinhoPage from "../pages/Carrinho/Carrinho";
@@ -17,6 +17,7 @@ export function  Rotas(){
             <Route path="/cadastro" element={ <Teste/>}/>
             <Route path="/" element={<Home/>}/>
             <Route path="/carrinho" element={<CarrinhoPage/>}></Route>
+            <Route path='/login' element={<Login />} />
         </Routes>
         
         
