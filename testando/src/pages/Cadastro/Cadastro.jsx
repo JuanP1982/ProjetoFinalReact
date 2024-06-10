@@ -51,7 +51,7 @@ export function Teste(){
         <br/>
         <InputModificado6 name="cep" value={formInfo.cep} onChange={adicionar}></InputModificado6>
         <br/>
-        <button  type="button" onClick={() => criarCliente(formInfo)}>Cadastrar</button>
+        <button type="button" onClick={() => criarCliente(formInfo)}>Cadastrar</button>
         </form>
         </div>
         </main>
