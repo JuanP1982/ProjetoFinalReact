@@ -37,7 +37,7 @@ export function Teste(){
         <main>
         <div className={styles.formCardDiv}>
             <h1>Criar Conta</h1>
-            <h4>Já tem uma conta? <a href="#">Faça login.</a></h4>
+            <h4>Já tem uma conta? <a href="/login">Faça login.</a></h4>
             <form>
         <InputModificado1 name="nome" value={formInfo.nome} onChange={adicionar}></InputModificado1>
         <br/>
