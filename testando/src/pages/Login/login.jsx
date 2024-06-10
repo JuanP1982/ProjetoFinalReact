@@ -21,7 +21,7 @@ export function Login() {
       
       if (response.status === 200) {
         localStorage.setItem('token', "Logado");
-        localStorage.setItem("cliente", JSON.stringify(response.data));
+        localStorage.setItem("dadosUsuario", JSON.stringify(response.data));
         navigate('/');
       } else {
         setError('Email ou senha incorretos');

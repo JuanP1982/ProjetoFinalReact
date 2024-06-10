@@ -28,11 +28,10 @@ export function Home(){
           };
         
     return(
-        <div style = {{display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center", padding: "0 200px"}}>
-            <Cabecalho busca = {busca} setBusca = {setBusca}/>
-            <main style={{ maxWidth: "800px", width: "100%" , padding: "0 200px"}}>
-            <div style={{ width: "8000px", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "2.rem" , padding: "0 120px", marginLeft: "-100px"}}>
-            {produtos.map((produto)=>(
+        <div className="home-container">
+        <Cabecalho busca={busca} setBusca={setBusca} />
+        <main className="home-main">
+            <div className="product-container">{produtos.map((produto)=>(
                 <CardBox key={produto.id}>
                 <p id="nome"> {produto.nome}</p>
                 <img id="foto" height="150px"  src={produto.url}></img>
