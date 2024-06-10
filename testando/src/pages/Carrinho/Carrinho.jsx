@@ -1,7 +1,7 @@
 import React, { useEffect,useContext, useState } from "react";
 import { cartContext } from "../../context/carrinhoContext";
 import { getClienteId, getClientes } from "../../service/clientes"
-import { limparLocalStorage, obterPefilUsuario, obterProdutosCarrinho, obterToken } from "../../uteis/localStorage/localStorage"
+import { limparLocalStorage, limparProdutos, obterPefilUsuario, obterProdutosCarrinho, obterToken } from "../../uteis/localStorage/localStorage"
 import Cabecalho from "../../components/paginaInicio/cabecalho";
 import { postPedido } from "../../service/pedido";
 
@@ -52,11 +52,12 @@ const CarrinhoPage = () => {
           cliente: { id: cliente.id },
           produtoIds: cartItens.map(item => item.id), 
           produtoNome: cartItens.map(item => item.nome).join(", "), 
-          preco: cartItens.map(item => item.preco).join(", "), 
-          quantidade: cartItens.map(item => item.quantidade).join(", ") 
+          preco: cartItens.map(item => parseFloat(item.preco)), 
+          quantidade: cartItens.map(item => item.quantidade)
         };
         console.log(pedido);
         postPedido(pedido);
+        limparProdutos()
       };
 
     console.log(itens);

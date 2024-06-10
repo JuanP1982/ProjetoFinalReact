@@ -39,4 +39,6 @@ export const salvarProdutosCarrinho = (Produtos)=>{
 };
 
 
-
+export const limparProdutos = () =>{
+    localStorage.removeItem("Produtos");
+};
