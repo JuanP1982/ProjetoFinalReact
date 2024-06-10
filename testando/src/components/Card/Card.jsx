@@ -5,7 +5,7 @@ export function Card(){
        
         <CardBox >
         </CardBox> 
-    )
-        
+    )        
+
     
 }

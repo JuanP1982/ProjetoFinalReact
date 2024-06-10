@@ -4,6 +4,7 @@ import { CardBox } from "../../components/Card/style";
 import { cartContext } from "../../context/carrinhoContext"
 import Cabecalho from "../../components/paginaInicio/cabecalho";
 import Rodape from "../../components/paginaInicio/rodape";
+import "./homePage.css";
 
 
 
@@ -30,14 +31,14 @@ export function Home(){
         <div style = {{display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center", padding: "0 200px"}}>
             <Cabecalho busca = {busca} setBusca = {setBusca}/>
             <main style={{ maxWidth: "800px", width: "100%" , padding: "0 200px"}}>
-            <div style={{ width: "100%", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "2.rem" , padding: "0 120px"}}>
+            <div style={{ width: "8000px", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "2.rem" , padding: "0 120px", marginLeft: "-100px"}}>
             {produtos.map((produto)=>(
                 <CardBox key={produto.id}>
-                <p id="nome">Produto: {produto.nome}</p>
+                <p id="nome"> {produto.nome}</p>
                 <img id="foto" height="150px"  src={produto.url}></img>
-                <p id="preco">Preço: {produto.preco}</p>
+                <p id="preco"> R${produto.preco}</p>
                 <p id="descrição">Descrição: {produto.categoria.descricao}</p>
-                <button type="button" onClick={() => adicionarCarrinho(produto)}>Adicionar ao carrinho</button>
+                <button type="buttonn" onClick={() => adicionarCarrinho(produto)}>Adicionar ao carrinho</button>
                 </CardBox>
                
 
