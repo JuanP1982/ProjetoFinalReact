@@ -4,7 +4,7 @@
   box-shadow: 9px;
   width: 100%;
   padding: 15px 120px 25px;
-  height: 10%;
+  height: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 0.87);
@@ -94,4 +94,61 @@ a:hover {
 .icon {
   margin-bottom: 4px;
   margin-right: 5px;
+}
+input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+
+@media (max-width: 1200px) {
+  .formCardDiv {
+    padding: 15px 60px 25px; 
+  }
+
+  h1 {
+    font-size: 2em; 
+  }
+}
+
+
+@media (max-width: 768px) {
+  .formCardDiv {
+    padding: 15px 30px 25px; 
+  }
+
+  h1 {
+    font-size: 1.5em; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .formCardDiv {
+    padding: 15px 15px 25px; 
+  }
+
+  h1 {
+    font-size: 1.2em; 
+  }
+
+  button {
+    font-size: 0.9em; 
+    padding: 8px 15px;
+  }
+  @media  (max-width: 768px) {
+    input {
+      max-width: 100%;
+    }
+    
+  }
+  @media (max-width: 480px) {
+    input {
+      width: 100%;
+      padding: 8px;
+    }
+  }
 }

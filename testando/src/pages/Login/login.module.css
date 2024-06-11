@@ -39,7 +39,8 @@ body, html {
     border-radius: 40px;
     background-color: rgb(17, 17, 17);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     padding: 15px 30px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgba(255, 255, 255, 0.87);
@@ -112,4 +113,53 @@ input {
 input:hover {
     background-color: rgba(54, 54, 54, 0.555);
     transition: 0.3s;
+}
+@media (max-width: 1200px) {
+    .formCardDiv {
+        padding: 15px 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .formCardDiv {
+        padding: 15px 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 7px 15px;
+    }
+
+    .backLink a {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .formCardDiv {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    button {
+        font-size: 0.8em;
+        padding: 7px 10px;
+    }
+
+    .backLink a {
+        font-size: 0.8em;
+        padding: 6px;
+    }
 }
