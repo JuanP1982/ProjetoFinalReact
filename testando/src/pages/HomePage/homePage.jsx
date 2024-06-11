@@ -34,7 +34,7 @@ export function Home(){
             <div className="product-container">{produtos.map((produto)=>(
                 <CardBox key={produto.id}>
                 <p id="nome"> {produto.nome}</p>
-                <img id="foto" height="150px"  src={produto.url}></img>
+                <img id="foto" max-width="33.33%" height="150px"  src={produto.url}></img>
                 <p id="preco"> R${produto.preco}</p>
                 <p id="descrição">Descrição: {produto.categoria.descricao}</p>
                 <button type="buttonn" onClick={() => adicionarCarrinho(produto)}>Adicionar ao carrinho</button>
