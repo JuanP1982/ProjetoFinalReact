@@ -26,7 +26,7 @@ export function Login() {
 
             if (response.status === 200) {
                 localStorage.setItem('token', "Logado");
-                localStorage.setItem("cliente", JSON.stringify(response.data));
+                localStorage.setItem("dadosUsuario", JSON.stringify(response.data));
                 navigate('/');
             } else {
                 setError('Email ou senha incorretos');
@@ -39,7 +39,7 @@ export function Login() {
     return (
         <div className={styles.pageContainer}>
             <Helmet>
-                <title>Login - Meu Site</title>
+                <title>Login</title>
             </Helmet>
             <div className={styles.backLink}>
                 <Link to="/">

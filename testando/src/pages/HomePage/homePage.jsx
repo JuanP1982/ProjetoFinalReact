@@ -4,7 +4,6 @@ import { CardBox } from "../../components/Card/style";
 import { cartContext } from "../../context/carrinhoContext"
 import Cabecalho from "../../components/paginaInicio/cabecalho";
 import Rodape from "../../components/paginaInicio/rodape";
-import { Helmet } from "react-helmet";
 import "./homePage.css";
 
 
