@@ -41,9 +41,9 @@ export function ListarClientes(){
     
     return(
 
-      <div className="container">
+      <div className="containerr">
         <CabecalhoPerfil />
-            <div className="CardBox">
+            <div className="CardBoxx">
         <h2>Detalhes do Cliente</h2>
         <p>ID: {cliente.id}</p>
         <p>Nome: {cliente.nome}</p>
@@ -53,7 +53,7 @@ export function ListarClientes(){
   
         <h2>Pedidos</h2>
         {cliente.pedido.map((pedido, index) => (
-        <div className="pedidoCard" key={index}>
+        <div className="pedidoCardd" key={index}>
             <h4>Pedido {index + 1}</h4>
             <p>Status: {pedido.status}</p>
             <p>Data do Pedido: {pedido.dataPedido}</p>
