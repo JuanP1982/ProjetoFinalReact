@@ -1,0 +1,132 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #444;
+    border-radius: 8px;
+    border: 2px solid #555;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.02);
+    border-color: #007BFF;
+}
+
+.image {
+    max-width: 120px;
+    border-radius: 10px;
+}
+
+p {
+    margin: 0 15px;
+    flex: 1;
+    color: #ddd;
+    font-size: 16px;
+}
+
+.button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+.totalCarrinho {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    color: #fff;
+    background-color: #007BFF;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #0056b3;
+    margin-top: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.totalCarrinho:hover {
+    background-color: #0056b3;
+    border-color: #003f7f;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .totalCarrinho {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        padding: 10px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .totalCarrinho {
+        font-size: 18px;
+    }
+}

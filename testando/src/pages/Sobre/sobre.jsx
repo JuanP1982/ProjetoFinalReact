@@ -12,13 +12,13 @@ const Sobre = () => {
     {
       nome: 'Gabriel Martins',
       descricao: 'HTML',
-      imagem: '/Assets/gabriel.jpeg',
+      imagem: './Gabriel.jpeg',
       github: 'https://github.com/Gabrielmartinsv'
     },
     {
       nome: 'Lucas Mello',
       descricao: 'HTML',
-      imagem: '',
+      imagem: './Lucas.jpg',
       github: 'https://github.com/lucassmelloo1'
     },
     {
