@@ -15,7 +15,7 @@ const CarrinhoPage = () => {
   if (localStorage.getItem("token") === null) {
       document.body.style.display = "hidden"
       alert("Faça login para continuar!")
-      setInterval(()=>{window.location.href="/login"},1000)
+      setTimeout(()=>{window.location.href="/login"},1000)
   }
 
   const clienteCarregar = obterPefilUsuario()

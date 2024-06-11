@@ -22,24 +22,20 @@ export function Home(){
         const adicionarCarrinho = (produto) => {
             if (localStorage.getItem("token") === null) {
                 alert("Faça login para adicionar itens ao carrinho!")
-                setInterval(()=>{window.location.href="/cadastro"},1000)
+                setTimeout(()=>{window.location.href="/login"},1000)
             }else{
             adicionarItens(produto);
         }
           };
         
     return(
-        <div style = {{display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center", padding: "0 200px"}}>
-            <Helmet>
-        <title>Home</title>
-      </Helmet>
-            <Cabecalho busca = {busca} setBusca = {setBusca}/>
-            <main style={{ maxWidth: "800px", width: "100%" , padding: "0 200px"}}>
-            <div style={{ width: "8000px", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "2.rem" , padding: "0 120px", marginLeft: "-100px"}}>
-            {produtos.map((produto)=>(
+        <div className="home-container">
+        <Cabecalho busca={busca} setBusca={setBusca} />
+        <main className="home-main">
+            <div className="product-container">{produtos.map((produto)=>(
                 <CardBox key={produto.id}>
                 <p id="nome"> {produto.nome}</p>
-                <img id="foto" height="150px"  src={produto.url}></img>
+                <img id="foto" max-width="33.33%" height="150px"  src={produto.url}></img>
                 <p id="preco"> R${produto.preco}</p>
                 <p id="descrição">Descrição: {produto.categoria.descricao}</p>
                 <button type="buttonn" onClick={() => adicionarCarrinho(produto)}>Adicionar ao carrinho</button>

@@ -25,3 +25,43 @@ button[type="buttonn"]:focus {
     outline: none; 
     box-shadow: 0 0 0 3px rgba(85, 191, 212, 0.5); 
 }
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.home-main {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.product-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+    .home-container {
+        padding: 0 10px;
+    }
+
+    .home-main {
+        padding: 0 10px;
+    }
+
+    .product-container {
+        padding: 0 10px;
+        margin-left: 0;
+    }
+}

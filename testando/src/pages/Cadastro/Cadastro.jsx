@@ -8,12 +8,16 @@ import { Helmet } from "react-helmet";
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 
-export function Teste() {
-    if (localStorage.getItem("token")) {
-        document.body.style.visibility = "hidden";
-        alert("Você já está logado!");
-        window.location.href = "/";
+export function Teste(){
+
+    useEffect(()=>{
+    if(localStorage.getItem("token")){
+        document.body.style.visibility = "none"
+        alert("Você já está logado!")
+        setTimeout(()=>{window.location.href="/"},1000)
+    return
     }
+ },[])
 
     const [formInfo, setFormInfo] = useState({
         nome: "",
