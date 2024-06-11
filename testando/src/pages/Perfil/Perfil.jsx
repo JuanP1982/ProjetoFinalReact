@@ -23,7 +23,7 @@ export function ListarClientes(){
 
         const clienteCarregar = obterPefilUsuario()
         setCliente(clienteCarregar)
-        
+
         const clienteAtualizar = async () =>{
             const clienteAtualizado = await getClienteId()
             setCliente(clienteAtualizado)
@@ -34,14 +34,13 @@ export function ListarClientes(){
         }
 
     }, [])
-    
+
     if (cliente === undefined) {
         return <div>...Carregando...</div>
     }
     
     return(
-
-      <div className="containerr">
+        <div className="containerr">
         <CabecalhoPerfil />
             <div className="CardBoxx">
         <h2>Detalhes do Cliente</h2>
@@ -50,7 +49,7 @@ export function ListarClientes(){
         <p>Email: {cliente.email}</p>
         <p>Telefone: {cliente.telefone}</p>
         <p>Logradouro: {cliente.logradouro}</p>
-  
+
         <h2>Pedidos</h2>
         {cliente.pedido.map((pedido, index) => (
         <div className="pedidoCardd" key={index}>
@@ -58,7 +57,7 @@ export function ListarClientes(){
             <p>Status: {pedido.status}</p>
             <p>Data do Pedido: {pedido.dataPedido}</p>
             <p>Total do Carrinho: R$ {pedido.totalCarrinho.toFixed(2)}</p>
-  
+
             <h4>Itens do Carrinho</h4>
             {pedido.carrinho.map((item, itemIndex) => (
               <div key={itemIndex}>

@@ -1,57 +1,57 @@
 .containerr {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.CardBoxx {
+  margin-top: 2800px; 
+  max-height: calc(200vh -800px); 
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 595%;
+  width: 600%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+.CardBoxx h2 {
+  margin-bottom: 10px;
+  color: #55bfd4;
+  width: 100%;
+}
+.CardBoxx p {
+  margin: 4px 0;
+  color: #e0e0e0;
+  width: 100%;
+}
+.pedidoCardd {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #02f7ea;
+  border-radius: 8px;
+  background-color: #0e5a69;
+  width: 30%;
+margin-left: 35%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+.pedidoCardd div {
+  margin: 8px 0;
+}
+@media (max-width: 600px) {
   .CardBoxx {
-    margin-top: 2800px; 
-    max-height: calc(200vh -800px); 
-    padding: 20px;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-width: 595%;
-    width: 600%;
-    box-sizing: border-box;
-    overflow-x: auto;
+    padding: 15px;
+    width: 95%;
+    margin-top: 60px;
+    max-height: calc(100vh - 50px);
   }
-  .CardBoxx h2 {
-    margin-bottom: 10px;
-    color: #55bfd4;
-    width: 100%;
-  }
-  .CardBoxx p {
-    margin: 4px 0;
-    color: #e0e0e0;
-    width: 100%;
-  }
+
   .pedidoCardd {
-    margin: 20px 0;
-    padding: 20px;
-    border: 1px solid #02f7ea;
-    border-radius: 8px;
-    background-color: #0e5a69;
-    width: 30%;
- margin-left: 35%;
-    box-sizing: border-box;
-    overflow-x: auto;
+    padding: 15px;
   }
-  .pedidoCardd div {
-    margin: 8px 0;
-  }
-  @media (max-width: 600px) {
-    .CardBoxx {
-      padding: 15px;
-      width: 95%;
-      margin-top: 60px;
-      max-height: calc(100vh - 50px);
-    }
-  
-    .pedidoCardd {
-      padding: 15px;
-    }
-  }
+}
