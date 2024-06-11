@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect } from "react";
-import { getClientes } from "../service/clientes"
 import { getProdutos } from "../service/produtos";
 
 const ProdutoContext = createContext();
 
 const ProdutoProvider = (props) => {
+
     const [produtos, setProduto] = useState([])
 
     function obterProduto() {

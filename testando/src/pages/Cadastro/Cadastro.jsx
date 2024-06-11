@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { postCliente } from "../../service/clientes";
+import { useEffect, useState } from "react";
+import { RequisicoesAPI } from "../../service/clientes";
 import styles from './cadastro.module.css';
 import { InputModificado1, InputModificado2, InputModificado3, InputModificado4, InputModificado5, InputModificado6 } from "../../components/input/Input";
 import { obterToken } from "../../uteis/localStorage/localStorage";
@@ -9,11 +9,14 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 
 export function Teste() {
+    const {postCliente, loading} = RequisicoesAPI()
+
     if (localStorage.getItem("token")) {
         document.body.style.visibility = "hidden";
         alert("Você já está logado!");
         window.location.href = "/";
     }
+
 
     const [formInfo, setFormInfo] = useState({
         nome: "",
@@ -36,6 +39,8 @@ export function Teste() {
 
     return (
         <main>
+            {loading && 
+                <div className={styles.imagemLoading}> <img src="https://pa1.aminoapps.com/6465/2452f81597957cc887acb4bb377b55a30ba0ea36_00.gif"></img> </div>}
             <Helmet>
                 <title>Cadastro</title>
             </Helmet>

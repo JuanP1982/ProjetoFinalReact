@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { getClienteId, getClientes } from "../../service/clientes"
+import { RequisicoesAPI } from "../../service/clientes"
 import { Card } from "../../components/Card/Card"
 import { CardBox } from "../../components/Card/style"
 import { ClienteContext } from "../../context/clienteContext"
@@ -9,6 +9,7 @@ import Cabecalho from "../../components/paginaInicio/cabecalho"
 
 
 export function ListarClientes(){
+    const {getClientes,getClienteId, loading} = RequisicoesAPI()
     const [cliente, setCliente] = useState(undefined)
 
     useEffect(()=>{

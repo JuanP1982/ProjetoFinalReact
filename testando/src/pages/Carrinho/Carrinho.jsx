@@ -1,12 +1,13 @@
 import React, { useEffect,useContext, useState } from "react";
+import { RequisicoesAPI } from "../../service/clientes";
 import { cartContext } from "../../context/carrinhoContext";
-import { getClienteId, getClientes } from "../../service/clientes"
 import { limparLocalStorage, limparProdutos, obterPefilUsuario, obterProdutosCarrinho, obterToken } from "../../uteis/localStorage/localStorage"
 import Cabecalho from "../../components/paginaInicio/cabecalho";
 import { Helmet } from "react-helmet";
 import { postPedido } from "../../service/pedido";
 
 const CarrinhoPage = () => {
+  const {getClienteId, loading} = RequisicoesAPI()
   const {removerItens, cartItens, calcularTotal, valorTotal } = useContext(cartContext)
   const [cliente, setCliente] = useState(undefined)
   const [itens, setItens] = useState([])
@@ -23,8 +24,12 @@ const CarrinhoPage = () => {
   
   const clienteAtualizar = async () =>{
       const clienteAtualizado = await getClienteId()
-      setCliente(clienteAtualizado)
-  }
+      if (!clienteAtualizado) {
+        <div>Loading...</div>
+      }
+      
+    setCliente(clienteAtualizado)
+      }
 
   if (clienteCarregar) {
       clienteAtualizar()

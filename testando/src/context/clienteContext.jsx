@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect } from "react";
-import { getClientes } from "../service/clientes"
+import { RequisicoesAPI } from "../service/clientes";
 
 const ClienteContext = createContext();
 
 const ClienteProvider = (props) => {
+    const {getClientes, loading} = RequisicoesAPI()
     const [clientes, setClientes] = useState([])
 
     function obterClientes() {
