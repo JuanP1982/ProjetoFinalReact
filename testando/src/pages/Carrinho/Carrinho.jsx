@@ -10,7 +10,6 @@ const CarrinhoPage = () => {
   const {getClienteId, loading} = RequisicoesAPI()
   const {removerItens, cartItens, calcularTotal, valorTotal } = useContext(cartContext)
   const [cliente, setCliente] = useState(undefined)
-  const [itens, setItens] = useState([])
 
  useEffect(()=>{
   if (localStorage.getItem("token") === null) {
@@ -31,17 +30,13 @@ const CarrinhoPage = () => {
       clienteAtualizar()
       }
       
-      const ItensCart = obterProdutosCarrinho()
-      setItens(ItensCart)
+      console.log("Itens cartContext",cartItens);
+      // const ItensCart = obterProdutosCarrinho()
+      // setItens(ItensCart)
 
       calcularTotal()
       
-      }, [])
-      
-      useEffect(() => {
-        setItens(cartItens);
-        calcularTotal()
-    }, []);
+      }, [cartItens])
     
 
     if (cliente === undefined) {
@@ -62,7 +57,7 @@ const CarrinhoPage = () => {
         limparProdutos()
       };
 
-    console.log(itens);
+    
   return (
     <div>
       <Helmet>
@@ -71,11 +66,11 @@ const CarrinhoPage = () => {
       <Cabecalho/>
             <h1>Carrinho de Compras {cliente.nome}</h1>
       <ul>
-        {itens.map((item) => (
+        {cartItens.map((item) => (
           <li key={item.id}>
             <p>Produto: {item.nome}</p>
-            <p>Quantidade: {item.quantidade}</p>
             <img src={item.url}></img>
+            <p>Quantidade: {item.quantidade}</p>
             <p>Preço: {item.preco}</p>
             <button onClick={() => removerItens(item.id)}>Remover</button>
           </li>

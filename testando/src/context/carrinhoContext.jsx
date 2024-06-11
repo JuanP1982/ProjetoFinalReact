@@ -5,13 +5,10 @@ import { salvarProdutosCarrinho } from "../uteis/localStorage/localStorage";
 const cartContext = createContext();
 
 const CartProvider = (props) => {
-  const [cartItens, setCartItens] = useState([]);
+  const [cartItens, setCartItens] = useState(obterProdutosCarrinho());
   const [valorTotal, setValorTotal] = useState(0);
 
-  useEffect(() => {
-    const itensSalvos = obterProdutosCarrinho();
-    setCartItens(itensSalvos);
-  }, []);
+  
 
   function adicionarItens(novoProduto) {
     const produtoExistente = cartItens.find(produto => produto.id === novoProduto.id);
