@@ -24,11 +24,7 @@ const CarrinhoPage = () => {
   
   const clienteAtualizar = async () =>{
       const clienteAtualizado = await getClienteId()
-      if (!clienteAtualizado) {
-        <div>Loading...</div>
-      }
-      
-    setCliente(clienteAtualizado)
+      setCliente(clienteAtualizado)
       }
 
   if (clienteCarregar) {
@@ -45,7 +41,7 @@ const CarrinhoPage = () => {
       useEffect(() => {
         setItens(cartItens);
         calcularTotal()
-    }, [cartItens]);
+    }, []);
     
 
     if (cliente === undefined) {

@@ -17,6 +17,7 @@ export function Teste() {
         window.location.href = "/";
     }
 
+    const [confirmaSenha, setConfirmaSenha] = useState("");
 
     const [formInfo, setFormInfo] = useState({
         nome: "",
@@ -28,6 +29,20 @@ export function Teste() {
     });
 
     function criarCliente(cliente) {
+        if (cliente.senha !== confirmaSenha) {
+            alert("A confirmação de senha não corresponde à senha!");
+            return;
+        }
+        if (cliente.cpf.length !== 14) {
+            alert("O CPF deve conter exatamente 11 dígitos!");
+            return;
+        }
+    
+        if (!cliente.email.includes("@")) {
+            alert("O e-mail deve conter o caractere '@'!");
+            return;
+        }
+    
         postCliente(cliente);
     }
 
@@ -35,6 +50,12 @@ export function Teste() {
         event.preventDefault();
         const { name, value } = event.target;
         setFormInfo({ ...formInfo, [name]: value });
+    };
+
+    const adicionarConfirmação = (event) => {
+        event.preventDefault();
+        const { value } = event.target;
+        setConfirmaSenha(value);
     };
 
     return (
@@ -58,9 +79,11 @@ export function Teste() {
                     <br />
                     <InputModificado3 name="email" value={formInfo.email} onChange={adicionar}></InputModificado3>
                     <br />
-                    <InputModificado4 name="cpf" value={formInfo.cpf} onChange={adicionar}></InputModificado4>
+                    <InputModificado4 placeholder="cpf" name="cpf" value={formInfo.cpf} onChange={adicionar}></InputModificado4>
                     <br />
-                    <InputModificado5 name="senha" value={formInfo.senha} onChange={adicionar}></InputModificado5>
+                    <InputModificado5 placeholder="Senha" name="senha" value={formInfo.senha} onChange={adicionar}></InputModificado5>
+                    <br />
+                    <InputModificado5 placeholder="Confirmação Senha" name="confirmaSenha" value={confirmaSenha} onChange={adicionarConfirmação}></InputModificado5>
                     <br />
                     <InputModificado6 name="cep" value={formInfo.cep} onChange={adicionar}></InputModificado6>
                     <br />
