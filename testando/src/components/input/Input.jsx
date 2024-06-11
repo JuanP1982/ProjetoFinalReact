@@ -40,7 +40,7 @@ export function InputModificado4({name, onChange, value}){
 export function InputModificado5({name, onChange, value,placeholder}){
     return(
         <>
-        <input name={name} placeholder={placeholder} onChange={onChange} value={value} className={styles.Input2}>
+        <input type="password" name={name} placeholder={placeholder} onChange={onChange} value={value} className={styles.Input2}>
         
         </input>
         </>

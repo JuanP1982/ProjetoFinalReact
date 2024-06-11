@@ -81,7 +81,7 @@ export function Teste() {
                     <br />
                     <InputModificado4 placeholder="cpf" name="cpf" value={formInfo.cpf} onChange={adicionar}></InputModificado4>
                     <br />
-                    <InputModificado5 placeholder="Senha" name="senha" value={formInfo.senha} onChange={adicionar}></InputModificado5>
+                    <InputModificado5  placeholder="Senha" name="senha" value={formInfo.senha} onChange={adicionar}></InputModificado5>
                     <br />
                     <InputModificado5 placeholder="Confirmação Senha" name="confirmaSenha" value={confirmaSenha} onChange={adicionarConfirmação}></InputModificado5>
                     <br />
