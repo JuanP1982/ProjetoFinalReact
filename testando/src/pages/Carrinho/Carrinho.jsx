@@ -8,7 +8,8 @@ import { postPedido } from "../../service/pedido";
 
 const CarrinhoPage = () => {
   const {getClienteId, loading} = RequisicoesAPI()
-  const {removerItens, cartItens, calcularTotal, valorTotal } = useContext(cartContext)
+  const {removerItens,adicionarItens, cartItens, calcularTotal, valorTotal } = useContext(cartContext)
+  const [totalCarrinho, setTotalCarrinho] = useState(valorTotal)
   const [cliente, setCliente] = useState(undefined)
 
  useEffect(()=>{
@@ -29,11 +30,6 @@ const CarrinhoPage = () => {
   if (clienteCarregar) {
       clienteAtualizar()
       }
-      
-      console.log("Itens cartContext",cartItens);
-      // const ItensCart = obterProdutosCarrinho()
-      // setItens(ItensCart)
-
       calcularTotal()
       
       }, [cartItens])
@@ -52,7 +48,7 @@ const CarrinhoPage = () => {
           preco: cartItens.map(item => parseFloat(item.preco)), 
           quantidade: cartItens.map(item => item.quantidade)
         };
-        console.log(pedido);
+        alert("Sua compra foi finalizada!");
         postPedido(pedido);
         limparProdutos()
       };
@@ -73,6 +69,7 @@ const CarrinhoPage = () => {
             <p>Quantidade: {item.quantidade}</p>
             <p>Preço: {item.preco}</p>
             <button onClick={() => removerItens(item.id)}>Remover</button>
+            <button type="button" onClick={()=>adicionarItens(item)}>+</button>
           </li>
         ))}
       </ul>
