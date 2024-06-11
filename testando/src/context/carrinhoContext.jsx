@@ -25,7 +25,7 @@ const CartProvider = (props) => {
     } else {
       novosItens = [...cartItens, { ...novoProduto, quantidade: 1 }];
     }
-  
+  calcularTotal()
     setCartItens(novosItens);
     salvarProdutosCarrinho(novosItens);
   }
