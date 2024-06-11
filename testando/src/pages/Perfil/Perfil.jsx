@@ -5,7 +5,9 @@ import { CardBox } from "../../components/Card/style"
 import { ClienteContext } from "../../context/clienteContext"
 import { limparLocalStorage, obterPefilUsuario, obterToken } from "../../uteis/localStorage/localStorage"
 import { Helmet } from "react-helmet";
-import Cabecalho from "../../components/paginaInicio/cabecalho"
+import "./cabecalhoPerfil.css";
+import "./Perfil.css";
+import { CabecalhoPerfil } from "./cabecalhoPerfil"
 
 
 export function ListarClientes(){
@@ -38,7 +40,10 @@ export function ListarClientes(){
     }
     
     return(
-        <CardBox>
+
+      <div className="container">
+        <CabecalhoPerfil />
+            <div className="CardBox">
         <h2>Detalhes do Cliente</h2>
         <p>ID: {cliente.id}</p>
         <p>Nome: {cliente.nome}</p>
@@ -48,8 +53,8 @@ export function ListarClientes(){
   
         <h2>Pedidos</h2>
         {cliente.pedido.map((pedido, index) => (
-          <div key={index}>
-            <h3>Pedido {index + 1}</h3>
+        <div className="pedidoCard" key={index}>
+            <h4>Pedido {index + 1}</h4>
             <p>Status: {pedido.status}</p>
             <p>Data do Pedido: {pedido.dataPedido}</p>
             <p>Total do Carrinho: R$ {pedido.totalCarrinho.toFixed(2)}</p>
@@ -57,15 +62,18 @@ export function ListarClientes(){
             <h4>Itens do Carrinho</h4>
             {pedido.carrinho.map((item, itemIndex) => (
               <div key={itemIndex}>
+
                 <p>Nome do Produto: {item.nomeProduto}</p>
+                <p><img src={item.url} alt="" /></p>
                 <p>Quantidade: {item.quantidade}</p>
                 <p>Valor Unitário: R$ {item.valor.toFixed(2)}</p>
                 <p>Total: R$ {item.total.toFixed(2)}</p>
                 <p>Categoria: {item.categoria.nome}</p>
-              </div>
-            ))}
-          </div>
-        ))}
-      </CardBox>
+                </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
+        </div>
     );
   }
