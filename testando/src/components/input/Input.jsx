@@ -13,7 +13,7 @@ export function InputModificado1({name, onChange, value}){
 export function InputModificado2({name, onChange, value}){
     return(
         <>
-        <input name={name} placeholder="Telefone: 1234567-8910" onChange={onChange} value={value} className={styles.Input2}>
+        <input name={name} placeholder="Telefone: 12 34567-8910" onChange={onChange} value={value} className={styles.Input2}>
         
         </input>
         </>
