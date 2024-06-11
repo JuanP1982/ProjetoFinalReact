@@ -4,6 +4,7 @@ import { Card } from "../../components/Card/Card"
 import { CardBox } from "../../components/Card/style"
 import { ClienteContext } from "../../context/clienteContext"
 import { limparLocalStorage, obterPefilUsuario, obterToken } from "../../uteis/localStorage/localStorage"
+import { Helmet } from "react-helmet";
 import Cabecalho from "../../components/paginaInicio/cabecalho"
 
 
@@ -37,6 +38,9 @@ export function ListarClientes(){
     
     return(
         <div>
+            <Helmet>
+                <title>Perfil</title>
+            </Helmet>
             <Cabecalho/>
            <CardBox key={cliente.id}>
             <p >ID: {cliente.id}</p>

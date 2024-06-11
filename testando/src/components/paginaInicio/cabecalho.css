@@ -25,10 +25,22 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.logo {
+  height: 60px;
+  margin-left: -27px;
+  margin-right: 20px;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
   display: flex;
+  align-items: center;
 }
 
 nav ul li {
@@ -41,6 +53,14 @@ nav ul li a {
   display: inline;
   margin: 0 10px;
   color: #55bfd4;
+  font-size: 15px;
+}
+
+nav ul li a:hover {
+  display: inline;
+  margin: 0 10px;
+  color: #398fa0;
+  transition: 0.3s;
 }
 
 input[type="text"] {
@@ -61,7 +81,7 @@ button[type="button"] {
   cursor: pointer;
   border-radius: 5px;
  margin-left: 10px;
-  margin-top: 0;
+  margin-top: 10px;
   margin-right: 20px;
 }
 

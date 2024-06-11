@@ -3,6 +3,7 @@ import { cartContext } from "../../context/carrinhoContext";
 import { getClienteId, getClientes } from "../../service/clientes"
 import { limparLocalStorage, limparProdutos, obterPefilUsuario, obterProdutosCarrinho, obterToken } from "../../uteis/localStorage/localStorage"
 import Cabecalho from "../../components/paginaInicio/cabecalho";
+import { Helmet } from "react-helmet";
 import { postPedido } from "../../service/pedido";
 
 const CarrinhoPage = () => {
@@ -63,6 +64,9 @@ const CarrinhoPage = () => {
     console.log(itens);
   return (
     <div>
+      <Helmet>
+        <title>Carrinho</title>
+      </Helmet>
       <Cabecalho/>
             <h1>Carrinho de Compras {cliente.nome}</h1>
       <ul>

@@ -4,6 +4,7 @@ import { CardBox } from "../../components/Card/style";
 import { cartContext } from "../../context/carrinhoContext"
 import Cabecalho from "../../components/paginaInicio/cabecalho";
 import Rodape from "../../components/paginaInicio/rodape";
+import { Helmet } from "react-helmet";
 import "./homePage.css";
 
 
@@ -29,6 +30,9 @@ export function Home(){
         
     return(
         <div style = {{display: "flex", flexDirection: "column", alignItems:"center", justifyContent: "center", padding: "0 200px"}}>
+            <Helmet>
+        <title>Home</title>
+      </Helmet>
             <Cabecalho busca = {busca} setBusca = {setBusca}/>
             <main style={{ maxWidth: "800px", width: "100%" , padding: "0 200px"}}>
             <div style={{ width: "8000px", display: "flex", justifyContent: "flex-end", flexWrap: "wrap", gap: "2.rem" , padding: "0 120px", marginLeft: "-100px"}}>

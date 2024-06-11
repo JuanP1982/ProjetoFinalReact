@@ -4,11 +4,11 @@ import "./cabecalho.css";
 const Cabecalho = ({ busca, setBusca }) => {
     return (
         <header>
-            <h1>Grupo 02</h1>
             <nav>
                 <ul>
+                    <li><a href="/"><img className="logo" src="./logo.png" /></a></li>
                     <li> <a href="/"> Home</a></li>
-                    <li> <a href="/"> Sobre</a></li>
+                    <li> <a href="/sobre"> Sobre</a></li>
                     <li> <a href="/carrinho"> Carrinho</a></li>
                 </ul>
             </nav>
@@ -20,8 +20,8 @@ const Cabecalho = ({ busca, setBusca }) => {
             />
              <nav>
              <ul>
-                    <button type="button" onClick={() => (window.location.href = "/cadastro")}>Registrar-se</button>
-                    <button type="button" onClick={() => (window.location.href = "/perfil")}>Perfil</button>
+                    <button className="buttonC" type="button" onClick={() => (window.location.href = "/cadastro")}>Registrar-se</button>
+                    <button className="buttonC" type="button" onClick={() => (window.location.href = "/perfil")}>Perfil</button>
                     </ul>
                     </nav>
         </header>
