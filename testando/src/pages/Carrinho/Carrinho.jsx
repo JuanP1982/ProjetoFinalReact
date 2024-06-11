@@ -9,7 +9,7 @@ import styles from "./carrinho.module.css";
 
 const CarrinhoPage = () => {
   const { getClienteId, loading } = RequisicoesAPI();
-  const { removerItens, cartItens, calcularTotal, valorTotal } = useContext(cartContext);
+  const { removerItens, cartItens,adicionarItens, calcularTotal, valorTotal } = useContext(cartContext);
   const [cliente, setCliente] = useState(undefined);
 
   useEffect(() => {
@@ -38,7 +38,10 @@ const CarrinhoPage = () => {
     return <div>...Carregando...</div>;
   }
 
+  
+
   const finalizar = () => {
+    if (cartItens.length !== 0 ){
     const pedido = {
       status: "FINALIZADO",
       cliente: { id: cliente.id },
@@ -50,6 +53,10 @@ const CarrinhoPage = () => {
     console.log(pedido);
     postPedido(pedido);
     limparProdutos();
+    return;
+   }else{
+    alert("Adicione produtos ao carrinho para continuar!")
+   }
   };
 
   return (
@@ -66,7 +73,7 @@ const CarrinhoPage = () => {
             <img src={item.url} alt={item.nome} className={styles.image} />
             <p>Quantidade: {item.quantidade}</p>
             <p>Preço: {item.preco}</p>
-            <button onClick={() => adicionarItens(item.id)} className={styles.button}>Adicionar</button>
+            <button onClick={() => adicionarItens(item)} className={styles.button}>Adicionar</button>
             <button onClick={() => removerItens(item.id)} className={styles.button}>Remover</button>
           </li>
         ))}
