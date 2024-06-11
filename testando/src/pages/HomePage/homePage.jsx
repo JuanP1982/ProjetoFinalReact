@@ -21,7 +21,7 @@ export function Home(){
         const adicionarCarrinho = (produto) => {
             if (localStorage.getItem("token") === null) {
                 alert("Faça login para adicionar itens ao carrinho!")
-                setInterval(()=>{window.location.href="/cadastro"},1000)
+                setTimeout(()=>{window.location.href="/login"},1000)
             }else{
             adicionarItens(produto);
         }

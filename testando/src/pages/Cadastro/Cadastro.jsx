@@ -7,11 +7,14 @@ import { obterToken } from "../../uteis/localStorage/localStorage"
 
 export function Teste(){
 
+    useEffect(()=>{
     if(localStorage.getItem("token")){
-        document.body.style.visibility = "hidden"
+        document.body.style.visibility = "none"
         alert("Você já está logado!")
-        window.location.href = "/"
+        setTimeout(()=>{window.location.href="/"},1000)
+    return
     }
+ },[])
 
     const [formInfo, setFormInfo] = useState({
         nome: "",

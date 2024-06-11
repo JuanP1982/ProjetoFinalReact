@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -8,6 +8,14 @@ export function Login() {
     const [error, setError] = useState('');
 
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(localStorage.getItem("token")){
+        document.body.style.visibility = "none"
+        alert("Você já está logado!")
+        setTimeout(()=>{window.location.href="/"},1000)
+    }
+ },[])
 
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault(); 
