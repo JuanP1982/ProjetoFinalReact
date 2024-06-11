@@ -38,30 +38,34 @@ export function ListarClientes(){
     }
     
     return(
-        <div>
-            <Helmet>
-                <title>Perfil</title>
-            </Helmet>
-            <Cabecalho/>
-           <CardBox key={cliente.id}>
-            <p >ID: {cliente.id}</p>
-           <p >Nome: {cliente.nome}</p>
-           <p >Email: {cliente.email}</p>
-            <p >Telefone: {cliente.telefone}</p>
-            <p>Logradouro: {cliente.logradouro}</p>
-             {cliente.pedido.map((pedido, index)=>(
-                <div key={index}>
-                <p>{pedido.totalCarrinho}</p>
-                <p>{pedido.status}</p>
-                <img src={pedido.url} alt="" />
-                </div>
+        <CardBox>
+        <h2>Detalhes do Cliente</h2>
+        <p>ID: {cliente.id}</p>
+        <p>Nome: {cliente.nome}</p>
+        <p>Email: {cliente.email}</p>
+        <p>Telefone: {cliente.telefone}</p>
+        <p>Logradouro: {cliente.logradouro}</p>
+  
+        <h2>Pedidos</h2>
+        {cliente.pedido.map((pedido, index) => (
+          <div key={index}>
+            <h3>Pedido {index + 1}</h3>
+            <p>Status: {pedido.status}</p>
+            <p>Data do Pedido: {pedido.dataPedido}</p>
+            <p>Total do Carrinho: R$ {pedido.totalCarrinho.toFixed(2)}</p>
+  
+            <h4>Itens do Carrinho</h4>
+            {pedido.carrinho.map((item, itemIndex) => (
+              <div key={itemIndex}>
+                <p>Nome do Produto: {item.nomeProduto}</p>
+                <p>Quantidade: {item.quantidade}</p>
+                <p>Valor Unitário: R$ {item.valor.toFixed(2)}</p>
+                <p>Total: R$ {item.total.toFixed(2)}</p>
+                <p>Categoria: {item.categoria.nome}</p>
+              </div>
             ))}
-            </CardBox>
-         <button type="button" onClick={()=>{limparLocalStorage()}}>Log-out</button>
-         <br/>
-         <br/>
-         <button type="button" onClick={()=>(window.location.href= "/")}>Pagina Inicial</button>
-        </div>
-       
-    )
-}
+          </div>
+        ))}
+      </CardBox>
+    );
+  }
