@@ -63,7 +63,7 @@ export function ListarClientes(){
               <div key={itemIndex}>
 
                 <p>Nome do Produto: {item.nomeProduto}</p>
-                <p><img src={item.url} alt="" /></p>
+                <p><img width="100px" height="100px" src={item.url} alt="" /></p>
                 <p>Quantidade: {item.quantidade}</p>
                 <p>Valor Unitário: R$ {item.valor.toFixed(2)}</p>
                 <p>Total: R$ {item.total.toFixed(2)}</p>
